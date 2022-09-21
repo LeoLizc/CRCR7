@@ -284,7 +284,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.99929, y: 1}
+    m_SensorSize: {x: 2, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -321,6 +321,7 @@ GameObject:
   - component: {fileID: 451610061}
   - component: {fileID: 451610060}
   - component: {fileID: 451610059}
+  - component: {fileID: 451610062}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -457,6 +458,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &451610062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451610056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17ba46dcd372e284aaee005c09973141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &452507944
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,7 +1002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c5de6b04d666fb44b9e3366fa903fd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUp: {fileID: 11400000, guid: 00ca0ebd0c74a5c43ba8d379bdc4030d, type: 2}
+  powerUp: {fileID: 11400000, guid: 93e74d167401ee34799c81fe6024e398, type: 2}
 --- !u!58 &915360290
 CircleCollider2D:
   m_ObjectHideFlags: 0
