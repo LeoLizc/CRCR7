@@ -59,28 +59,19 @@ public class movimiento : MonoBehaviour
             este.velocity = new Vector2(actualVel.x, 0);
         }
     }
-    /*void OnCollisionEnter2D(Collision2D collider)
+    void OnCollisionEnter2D(Collision2D collider)
     {
-        
-         if (collider.gameObject.tag == "carro")
-          {
-                Destroy(gameObject);
-          }
-        if (collider.gameObject.tag == "power")
+
+        if (collider.gameObject.tag == "carro")
         {
-           
-            
+            Destroy(collider.gameObject);
         }
-
-
-
-
 
     }
     void OnTriggerEnter2D(Collider2D collider)
     {
-        
-    }*/
+
+    }
 
 
 }

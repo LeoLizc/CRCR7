@@ -16,6 +16,15 @@ public class PowerHandler : MonoBehaviour
         charged = false;
     }
 
+    private void Update()
+    {
+        // check for the keys
+        if (Input.GetKey(KeyCode.Space))
+        {
+            activate();
+        }
+    }
+
     // Activate Power
     void activate()
     {
@@ -51,7 +60,7 @@ public class PowerHandler : MonoBehaviour
             usages = powerUp.usages;
             charged = true;
             Destroy(collision.gameObject);
-            activate();
+            //activate();
         }
     }
 }

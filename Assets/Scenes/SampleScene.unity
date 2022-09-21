@@ -284,7 +284,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2, y: 1}
+    m_SensorSize: {x: 2.001528, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -301,7 +301,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 353920107}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.6999993, y: 4.3, z: -10}
+  m_LocalPosition: {x: -4.7, y: 4.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 782516771}
@@ -670,7 +670,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.6999993, y: 4.3, z: -10}
+  m_LocalPosition: {x: -4.7, y: 4.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1002,7 +1002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c5de6b04d666fb44b9e3366fa903fd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUp: {fileID: 11400000, guid: 93e74d167401ee34799c81fe6024e398, type: 2}
+  powerUp: {fileID: 11400000, guid: 137a9daa2b9586c4e808354d518e3f2a, type: 2}
 --- !u!58 &915360290
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1254,7 +1254,7 @@ MonoBehaviour:
   - {fileID: 512844932}
   - {fileID: 1337310162}
   platform: {fileID: 6104162353608317311, guid: 6cc18f50df0ae5e4fae178c88929aac0, type: 3}
-  velocity: 2
+  velocity: 2.51
   pattern: 0;1;2;3;4;5;4;3;2;1;0;0,5;1,4;2,3;1,4;0,5
   period: 1
 --- !u!4 &1075890751
