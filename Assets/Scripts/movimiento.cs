@@ -10,10 +10,11 @@ public class movimiento : MonoBehaviour
     public bool inmortal;
     public enum Estado
     {
-        fantasma=1,
-        salto=2,
-        turbo=3, 
-        normal=0
+        fantasma = 1,
+        salto = 2,
+        turbo = 3, 
+        normal = 0,
+        invencible = 4
     }
     
     public float vel;
@@ -64,7 +65,14 @@ public class movimiento : MonoBehaviour
 
         if (collider.gameObject.tag == "carro")
         {
-            Destroy(collider.gameObject);
+            if(estado == Estado.invencible)
+            {
+                Destroy(collider.gameObject);
+            }
+            else if(estado != Estado.fantasma && estado != Estado.salto)
+            {
+                Destroy(gameObject);
+            }
         }
 
     }
