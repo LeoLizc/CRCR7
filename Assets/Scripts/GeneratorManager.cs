@@ -11,12 +11,14 @@ public class GeneratorManager : MonoBehaviour
     private int step;
     private float nextActionTime = 0.0f;
     [SerializeField] private float period;
+    private GameObject[] Cars;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         //step = 0;
         //InvokeRepeating("generatePlatform", 2, 2);
+        LoadObjects();
     }
 
     private void Update()
@@ -30,13 +32,25 @@ public class GeneratorManager : MonoBehaviour
         }
     }
 
+
+    void LoadObjects(){
+        object[] loadedCars = Resources.LoadAll ("cars_obstacles", typeof(GameObject)) ;
+        Cars = new GameObject[loadedCars.Length];
+        for (int x = 0; x < loadedCars.Length; x++)
+        {
+            Cars [x] = (GameObject)loadedCars [x];
+        }
+    }
+
+
     private void generatePlatform()
     {
         string[] steps = pattern.Split(';');
         string next = steps[step%steps.Length];
         foreach(string gen in next.Split(','))
         {
-            generators[int.Parse(gen)].GetComponent<PlatformGenerator>().generatePlatform(platform, velocity);
+            int numberOfCar = Random.Range(0, Cars.Length);
+            generators[int.Parse(gen)].GetComponent<PlatformGenerator>().generatePlatform(Cars[numberOfCar], velocity);
         }
         step++;
     }

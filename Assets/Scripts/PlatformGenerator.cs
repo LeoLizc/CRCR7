@@ -21,7 +21,7 @@ public class PlatformGenerator : MonoBehaviour
 
     public void generatePlatform(GameObject gm, float velocity)
     {
-        GameObject platform = Instantiate(gm, transform.position, Quaternion.identity);
+        GameObject platform = Instantiate(gm, transform.position, gm.transform.rotation);
         platform.GetComponent<Rigidbody2D>().velocity = Vector2.left * velocity;
     }
 }
