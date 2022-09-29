@@ -1497,9 +1497,11 @@ MonoBehaviour:
   streetGenerator: {fileID: 620237830}
   street: {fileID: 1492771435524588628, guid: 7a5347937d27f9241a94883a41447487, type: 3}
   velocity: 4.88
+  velocity2: 5
   streetVelocity: 6
   pattern: 0;1;2;3;4;5;4;3;2;1;0;0,5;1,4;2,3;1,4;0,5
   period: 0.56
+  perio2: 5
 --- !u!4 &1075890751
 Transform:
   m_ObjectHideFlags: 0
