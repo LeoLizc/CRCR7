@@ -5,8 +5,11 @@ using UnityEngine;
 public class GeneratorManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> generators;
-    [SerializeField] private GameObject platform;
+    [SerializeField] private GameObject streetGenerator;
+
+    [SerializeField] private GameObject street;
     [SerializeField] float velocity;
+    [SerializeField] float streetVelocity;
     public string pattern;
     private int step;
     private float nextActionTime = 0.0f;
@@ -29,6 +32,7 @@ public class GeneratorManager : MonoBehaviour
             nextActionTime = time + period;
             //Debug.Log("generar");
             generatePlatform();
+            generateStreet();
         }
     }
 
@@ -53,5 +57,13 @@ public class GeneratorManager : MonoBehaviour
             generators[int.Parse(gen)].GetComponent<PlatformGenerator>().generatePlatform(Cars[numberOfCar], velocity);
         }
         step++;
+    }
+
+    private void generateStreet()
+    {
+        if (streetGenerator)
+        {
+            streetGenerator.GetComponent<PlatformGenerator>().generatePlatform(street, streetVelocity);
+        }
     }
 }

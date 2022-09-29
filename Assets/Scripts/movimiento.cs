@@ -67,11 +67,12 @@ public class movimiento : MonoBehaviour
         {
             if(estado == Estado.invencible)
             {
-                Destroy(collider.gameObject);
+                
             }
             else if(estado != Estado.fantasma && estado != Estado.salto)
             {
-                Destroy(gameObject);
+                this.enabled = false;
+                //Destroy(gameObject);
             }
         }
 
@@ -81,5 +82,5 @@ public class movimiento : MonoBehaviour
 
     }
 
-
+    
 }

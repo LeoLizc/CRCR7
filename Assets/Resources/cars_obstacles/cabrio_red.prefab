@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 21275662}
   - component: {fileID: -8341933878156090676}
   - component: {fileID: -3388692731464640438}
+  - component: {fileID: -2435409588506402268}
   m_Layer: 6
   m_Name: cabrio_red
   m_TagString: carro
@@ -277,7 +278,7 @@ Transform:
   m_GameObject: {fileID: 186548}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 5.52, y: 2.33, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: -0.3, y: 0.3, z: 1}
   m_Children:
   - {fileID: 427256}
   - {fileID: 413212}
@@ -357,7 +358,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!61 &-3388692731464640438
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -371,7 +372,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01751566, y: 0}
+  m_Offset: {x: -0.12273198, y: 0.013357103}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -382,5 +383,17 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.398162, y: 1.7707198}
+  m_Size: {x: 4.1176667, y: 1.5035821}
   m_EdgeRadius: 0
+--- !u!114 &-2435409588506402268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a28f4bc7730903419f600e4f1d4a646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

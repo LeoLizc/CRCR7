@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 21269068}
   - component: {fileID: 5773269203939260469}
   - component: {fileID: 5598091046399431189}
+  - component: {fileID: 5303729510592765040}
   m_Layer: 6
   m_Name: 4x4_blue
   m_TagString: carro
@@ -194,7 +195,7 @@ Transform:
   m_GameObject: {fileID: 186698}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: -5.37, y: -0.15, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: -0.3, y: 0.3, z: 1}
   m_Children:
   - {fileID: 434268}
   - {fileID: 470998}
@@ -274,7 +275,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!61 &5598091046399431189
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -288,7 +289,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.031461716, y: 0.012584001}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -299,8 +300,20 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.8817677, y: 1.4278607}
   m_EdgeRadius: 0
+--- !u!114 &5303729510592765040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a28f4bc7730903419f600e4f1d4a646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &199970
 GameObject:
   m_ObjectHideFlags: 0
