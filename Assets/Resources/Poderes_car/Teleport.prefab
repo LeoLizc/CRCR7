@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 927737450475562786}
   m_Layer: 7
   m_Name: Teleport
-  m_TagString: Untagged
+  m_TagString: Power
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 554428290254608809}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.365, y: -3.546, z: -1}
+  m_LocalPosition: {x: 0.365, y: -3.546, z: -4.15}
   m_LocalScale: {x: 0.30704638, y: 0.30704638, z: 1.7638559}
   m_Children: []
   m_Father: {fileID: 0}

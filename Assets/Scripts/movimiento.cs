@@ -71,16 +71,14 @@ public class movimiento : MonoBehaviour
             }
             else if(estado != Estado.fantasma && estado != Estado.salto)
             {
+                este.freezeRotation = false;
+                
                 this.enabled = false;
+                GameManager.Instance.ChangeState(GameManager.GameState.crashed);
                 //Destroy(gameObject);
             }
         }
 
     }
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-
-    }
-
     
 }

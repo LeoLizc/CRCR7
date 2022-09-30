@@ -14,14 +14,18 @@ public class GeneratorManager : MonoBehaviour
     private int step;
     private float nextActionTime = 0.0f, nextActionTime2 = 0.0f;
     [SerializeField] private float period, perio2;
-    private GameObject[] Cars, poderes;
+    private GameObject[] cars, poderes;
+
+    [Header("Diference")]
+    [SerializeField] private float difference;
 
     // Start is called before the first frame update
     void Awake()
     {
         //step = 0;
         //InvokeRepeating("generatePlatform", 2, 2);
-        LoadObjects();
+        loadObjectsFolder("Poderes_car", ref poderes);
+        loadObjectsFolder("cars_obstacles", ref cars);
     }
 
     private void Update()
@@ -31,40 +35,30 @@ public class GeneratorManager : MonoBehaviour
         {
             nextActionTime = time + period;
             //Debug.Log("generar");
-            generatePlatform();
+            if (GameManager.Instance.velocity > difference && GameManager.Instance.state == GameManager.GameState.running)
+            {
+                generatePlatform();
+                generatePower();
+            }
             generateStreet();
-            LoadSuperObjects();
-            generatePower();
         }
-        if (time > nextActionTime2)
+        if (time > nextActionTime2 && GameManager.Instance.state == GameManager.GameState.running)
         {
             nextActionTime2 = time + perio2;
             //Debug.Log("generar");
-            LoadSuperObjects();
             generatePower();
         }
     }
 
-
-    void LoadObjects(){
-        object[] loadedCars = Resources.LoadAll ("cars_obstacles", typeof(GameObject)) ;
-        Cars = new GameObject[loadedCars.Length];
-        for (int x = 0; x < loadedCars.Length; x++)
-        {
-            Cars [x] = (GameObject)loadedCars [x];
-        }
-    }
-
-    void LoadSuperObjects()
+    void loadObjectsFolder(string folder, ref GameObject[] dest)
     {
-        object[] loadedCars = Resources.LoadAll("Poderes_car", typeof(GameObject));
-        poderes = new GameObject[loadedCars.Length];
-        for (int x = 0; x < loadedCars.Length; x++)
+        object[] loaded = Resources.LoadAll(folder, typeof(GameObject));
+        dest = new GameObject[loaded.Length];
+        for (int x = 0; x < loaded.Length; x++)
         {
-            poderes[x] = (GameObject)loadedCars[x];
+            dest[x] = (GameObject)loaded[x];
         }
     }
-
 
     private void generatePower()
     {
@@ -80,8 +74,8 @@ public class GeneratorManager : MonoBehaviour
         string next = steps[step%steps.Length];
         foreach(string gen in next.Split(','))
         {
-            int numberOfCar = Random.Range(0, Cars.Length);
-            generators[int.Parse(gen)].GetComponent<PlatformGenerator>().generatePlatform(Cars[numberOfCar], velocity);
+            int numberOfCar = Random.Range(0, cars.Length);
+            generators[int.Parse(gen)].GetComponent<PlatformGenerator>().generatePlatform(cars[numberOfCar], GameManager.Instance.velocity - difference);
         }
         step++;
     }
@@ -90,7 +84,7 @@ public class GeneratorManager : MonoBehaviour
     {
         if (streetGenerator)
         {
-            streetGenerator.GetComponent<PlatformGenerator>().generatePlatform(street, streetVelocity);
+            streetGenerator.GetComponent<PlatformGenerator>().generatePlatform(street, GameManager.Instance.velocity);
         }
     }
 }

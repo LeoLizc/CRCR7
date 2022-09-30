@@ -62,6 +62,7 @@ public class PowerHandler : MonoBehaviour
         yield return new WaitForSeconds(power.duration);
         Debug.Log("hola");
         Debug.Log(power);
+        Debug.Log("pder fuera");
         power.deapply(gameObject);
         active = false;
     }
@@ -70,6 +71,7 @@ public class PowerHandler : MonoBehaviour
     {
         if (collision.CompareTag("Power") && !charged)
         {
+            Debug.Log("Poder obtenido");
             powerUp = collision.gameObject.GetComponent<Power>().powerUp;
             usages = powerUp.usages;
             duration = powerUp.duration;
