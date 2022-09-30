@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,18 +20,20 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        state = GameState.start;
     }
     // Start is called before the first frame update
     void Start()
     {
         velocity = initialVelocity;
-        state = GameState.running;
     }
 
     private void FixedUpdate()
     {
         switch (state)
         {
+            case GameState.start:
+                break;
             case GameState.running:
                 velocity += Mathf.Min(Time.fixedDeltaTime * acceleration, maxVelocity);
                 break;
@@ -47,6 +50,7 @@ public class GameManager : MonoBehaviour
 
     public enum GameState
     {
+        start,
         running,
         crashed
     }
