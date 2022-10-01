@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [Header("Customizable")]
     [SerializeField] private float acceleration;
     [SerializeField] private float deacceleration;
+    [SerializeField] private float timeDeacceleration;
     [SerializeField] private float initialVelocity;
     [SerializeField] private float maxVelocity;
 
@@ -35,9 +36,10 @@ public class GameManager : MonoBehaviour
             case GameState.start:
                 break;
             case GameState.running:
-                velocity += Mathf.Min(Time.fixedDeltaTime * acceleration, maxVelocity);
+                velocity = Mathf.Min(velocity + Time.fixedDeltaTime * acceleration, maxVelocity);
                 break;
             case GameState.crashed:
+
                 velocity = Mathf.Max(0, velocity - Time.fixedDeltaTime * deacceleration);
                 break;
         }
@@ -46,6 +48,18 @@ public class GameManager : MonoBehaviour
     public void ChangeState(GameState newState)
     {
         state = newState;
+        switch (state)
+        {
+            case GameState.start:
+                break;
+            case GameState.running:
+                break;
+            case GameState.crashed:
+                deacceleration = velocity / timeDeacceleration;
+                break;
+            default:
+                break;
+        }
     }
 
     public enum GameState

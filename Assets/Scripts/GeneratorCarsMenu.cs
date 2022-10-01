@@ -19,7 +19,7 @@ public class GeneratorCarsMenu : MonoBehaviour
 
     void Awake()
     {
-        loadObjectsFolder(" ", ref cars);
+        loadObjectsFolder("cars_F1", ref cars);
     }
 
     private void Update()

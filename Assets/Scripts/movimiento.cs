@@ -8,6 +8,7 @@ public class movimiento : MonoBehaviour
     Rigidbody2D este;
     //public generador gen;
     public bool inmortal;
+    public PhysicsMaterial2D crashedMaterial;
     public enum Estado
     {
         fantasma = 1,
@@ -72,7 +73,11 @@ public class movimiento : MonoBehaviour
             else if(estado != Estado.fantasma && estado != Estado.salto)
             {
                 este.freezeRotation = false;
-                
+                este.angularVelocity = (((int)Random.Range(0,2))*2-1) * Random.Range(80, 250);
+
+                este.sharedMaterial = crashedMaterial;
+                este.drag = 2;
+                este.angularDrag = 1;
                 this.enabled = false;
                 GameManager.Instance.ChangeState(GameManager.GameState.crashed);
                 //Destroy(gameObject);

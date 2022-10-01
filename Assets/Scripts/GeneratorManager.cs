@@ -33,14 +33,15 @@ public class GeneratorManager : MonoBehaviour
         float time = Time.time;
         if ( time > nextActionTime)
         {
-            nextActionTime = time + period;
+            nextActionTime = time + period/(GameManager.Instance.velocity/9.5f);
             //Debug.Log("generar");
             if (GameManager.Instance.velocity > difference && GameManager.Instance.state == GameManager.GameState.running)
             {
                 generatePlatform();
                 generatePower();
             }
-            generateStreet();
+            if(GameManager.Instance.velocity > 0)
+                generateStreet();
         }
         if (time > nextActionTime2 && GameManager.Instance.state == GameManager.GameState.running)
         {

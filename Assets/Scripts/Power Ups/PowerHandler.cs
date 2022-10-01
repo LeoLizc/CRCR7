@@ -13,11 +13,16 @@ public class PowerHandler : MonoBehaviour
     private float progress, duration;
     [SerializeField] Slider bar;
 
+    public Image ima;
+    public Sprite[] pod;
+
+
     void Start()
     {
         active = false;
         charged = false;
         progress = 0;
+        ima.enabled = false;
     }
 
     private void Update()
@@ -51,6 +56,7 @@ public class PowerHandler : MonoBehaviour
             {
                 charged = false;
                 powerUp = null;
+                ima.enabled = false;
             }
         }
     }
@@ -77,6 +83,25 @@ public class PowerHandler : MonoBehaviour
             duration = powerUp.duration;
             charged = true;
             Destroy(collision.gameObject);
+            string d = powerUp.ToString();
+            if (d == "intangible (Intangibilidad)" && charged)
+            {
+                ima.enabled = true;
+                ima.sprite = pod[0];
+
+            }
+            if (d == "Velocidad (Velocidad)" && charged)
+            {
+                ima.enabled = true;
+                ima.sprite = pod[2];
+
+            }
+            if (d == "Teletransportacion (Teletransportacion)" && charged)
+            {
+                ima.enabled = true;
+                ima.sprite = pod[1];
+
+            }
             //activate();
         }
     }
