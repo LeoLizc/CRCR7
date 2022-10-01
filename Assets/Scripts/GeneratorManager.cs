@@ -38,10 +38,12 @@ public class GeneratorManager : MonoBehaviour
             if (GameManager.Instance.velocity > difference && GameManager.Instance.state == GameManager.GameState.running)
             {
                 generatePlatform();
-                generatePower();
             }
             if(GameManager.Instance.velocity > 0)
+            {
                 generateStreet();
+            }
+                
         }
         if (time > nextActionTime2 && GameManager.Instance.state == GameManager.GameState.running)
         {

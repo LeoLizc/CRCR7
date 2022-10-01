@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         Instance = this;
         state = GameState.start;
         mejorTiempo = 0;
@@ -92,6 +93,7 @@ public class GameManager : MonoBehaviour
             case GameState.start:
                 break;
             case GameState.running:
+                velocity = initialVelocity;
                 break;
             case GameState.crashed:
                 deacceleration = velocity / timeDeacceleration;
