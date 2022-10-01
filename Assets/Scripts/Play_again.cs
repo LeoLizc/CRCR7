@@ -3,20 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManagerStartScene : MonoBehaviour
+public class Play_again : MonoBehaviour
 {
-    public static GameManagerStartScene Instance;
 
-
-    void Awake()
-    {
-        Instance = this;
-    }
-
-
-    public void PlayButton()
+    public void play_again()
     {
         GameManager.Instance.ChangeState(GameManager.GameState.running);
         SceneManager.LoadScene("Game");
-    }
+    }    
 }

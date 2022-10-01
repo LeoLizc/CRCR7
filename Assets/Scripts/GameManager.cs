@@ -18,10 +18,19 @@ public class GameManager : MonoBehaviour
 
     public GameState state;
 
+    private float mejorTiempo;
+    private string stringMejorTiempo;
+    private float ultimoTiempo;
+    private string ultimoStringTiempo;
+
     private void Awake()
     {
         Instance = this;
         state = GameState.start;
+        mejorTiempo = 0;
+        stringMejorTiempo = "";
+        ultimoTiempo = 0;
+        ultimoStringTiempo = "";
     }
     // Start is called before the first frame update
     void Start()
@@ -39,11 +48,41 @@ public class GameManager : MonoBehaviour
                 velocity = Mathf.Min(velocity + Time.fixedDeltaTime * acceleration, maxVelocity);
                 break;
             case GameState.crashed:
-
                 velocity = Mathf.Max(0, velocity - Time.fixedDeltaTime * deacceleration);
                 break;
         }
     }
+
+    public void esMejorTiempo(float TimerControl, string TimerString)
+    {
+        if (TimerControl > mejorTiempo)
+        {
+            mejorTiempo = TimerControl;
+            stringMejorTiempo = TimerString;
+        }
+        ultimoTiempo = TimerControl;
+        ultimoStringTiempo = TimerString;
+    }
+
+
+    public string getBestTime()
+    {
+        return stringMejorTiempo;
+    }
+
+
+    public string getLastTime()
+    {
+        return ultimoStringTiempo;
+    }
+
+
+    public void PlayButton()
+    {
+        GameManager.Instance.ChangeState(GameManager.GameState.running);
+        SceneManager.LoadScene("Game");
+    }
+
 
     public void ChangeState(GameState newState)
     {

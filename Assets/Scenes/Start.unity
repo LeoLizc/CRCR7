@@ -783,10 +783,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 0.05
   deacceleration: 1
+  timeDeacceleration: 0
   initialVelocity: 6
   maxVelocity: 20
   velocity: 0
   state: 0
+  cambioTiempo: 0
 --- !u!4 &1253706137
 Transform:
   m_ObjectHideFlags: 0
@@ -1402,8 +1404,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1253706135}
-        m_TargetAssemblyTypeName: GameManagerStartScene, Assembly-CSharp
+      - m_Target: {fileID: 1253706136}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: PlayButton
         m_Mode: 1
         m_Arguments:

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class movimiento : MonoBehaviour
 {
@@ -80,7 +81,7 @@ public class movimiento : MonoBehaviour
                 este.angularDrag = 1;
                 this.enabled = false;
                 GameManager.Instance.ChangeState(GameManager.GameState.crashed);
-                //Destroy(gameObject);
+                SceneManager.LoadScene("End");
             }
         }
 
