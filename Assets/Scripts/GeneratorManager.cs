@@ -9,6 +9,7 @@ public class GeneratorManager : MonoBehaviour
 
     [SerializeField] private GameObject street;
     [SerializeField] float velocity, velocity2;
+    public float separation;
     [SerializeField] float streetVelocity;
     public string pattern;
     private int step;
@@ -33,7 +34,7 @@ public class GeneratorManager : MonoBehaviour
         float time = Time.time;
         if ( time > nextActionTime)
         {
-            nextActionTime = time + period/(GameManager.Instance.velocity/9.5f);
+            nextActionTime = time + period/(GameManager.Instance.velocity/separation);
             //Debug.Log("generar");
             if (GameManager.Instance.velocity > difference && GameManager.Instance.state == GameManager.GameState.running)
             {

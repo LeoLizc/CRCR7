@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
         stringMejorTiempo = "";
         ultimoTiempo = 0;
         ultimoStringTiempo = "";
+        DontDestroyOnLoad(gameObject);
     }
     // Start is called before the first frame update
     void Start()
