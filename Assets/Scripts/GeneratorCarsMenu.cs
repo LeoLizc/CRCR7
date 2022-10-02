@@ -15,6 +15,7 @@ public class GeneratorCarsMenu : MonoBehaviour
 
     [Header("Diference")]
     [SerializeField] private float difference;
+    
 
 
     void Awake()
@@ -25,7 +26,7 @@ public class GeneratorCarsMenu : MonoBehaviour
     private void Update()
     {
         float time = Time.time;
-        if ( time > nextActionTime)
+        if (time > nextActionTime)
         {
             nextActionTime = time + period;
             //Debug.Log("generar");
@@ -38,6 +39,7 @@ public class GeneratorCarsMenu : MonoBehaviour
         {
             nextActionTime2 = time + perio2;
         }
+        
     }
 
     void loadObjectsFolder(string folder, ref GameObject[] dest)
@@ -50,16 +52,17 @@ public class GeneratorCarsMenu : MonoBehaviour
         }
     }
 
-        private void generatePlatform()
+    private void generatePlatform()
     {
         string[] steps = pattern.Split(';');
-        string next = steps[step%steps.Length];
-        foreach(string gen in next.Split(','))
+        string next = steps[step % steps.Length];
+        foreach (string gen in next.Split(','))
         {
             int numberOfCar = Random.Range(0, cars.Length);
             Debug.Log(cars[numberOfCar]);
-            generators[(int.Parse(gen)%generators.Count)].GetComponent<PlatformGenerator>().generatePlatform(cars[numberOfCar], GameManager.Instance.velocity - difference);
+            generators[(int.Parse(gen) % generators.Count)].GetComponent<PlatformGenerator>().generatePlatform(cars[numberOfCar], GameManager.Instance.velocity - difference);
         }
         step++;
     }
+    
 }

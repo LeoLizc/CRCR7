@@ -11,7 +11,7 @@ public class GeneratorManager : MonoBehaviour
     [SerializeField] float velocity, velocity2;
     public float separation;
     [SerializeField] float streetVelocity;
-    public string pattern;
+    public string pattern, patron;
     private int step;
     private float nextActionTime = 0.0f, nextActionTime2 = 0.0f;
     [SerializeField] private float period, perio2;
@@ -75,6 +75,7 @@ public class GeneratorManager : MonoBehaviour
         private void generatePlatform()
     {
         string[] steps = pattern.Split(';');
+        
         string next = steps[step%steps.Length];
         foreach(string gen in next.Split(','))
         {
@@ -82,6 +83,11 @@ public class GeneratorManager : MonoBehaviour
             generators[int.Parse(gen)].GetComponent<PlatformGenerator>().generatePlatform(cars[numberOfCar], GameManager.Instance.velocity - difference);
         }
         step++;
+        if (step> steps.Length)
+        {
+            pattern= RandomGenP();
+            step = 0;
+        }
     }
 
     private void generateStreet()
@@ -90,5 +96,38 @@ public class GeneratorManager : MonoBehaviour
         {
             streetGenerator.GetComponent<PlatformGenerator>().generatePlatform(street, GameManager.Instance.velocity);
         }
+    }
+    public string RandomGenP()
+    {
+        patron = "";
+        int i, k, R = 0;
+        int[] no;
+        bool s = true;
+        no = new int[5];
+        i = Random.RandomRange(10, 20);
+        for (int j = 0; j < i; j++)
+        {
+            k = Random.RandomRange(1, 4);
+            for (int l = 0; l < k; l++)
+            {
+                while (s)
+                {
+                    R = Random.RandomRange(0, 6);
+                    s = false;
+                    for (int ni = 0; ni < l; ni++)
+                    {
+                        if (no[ni] == R)
+                            s = true;
+                    }
+                }
+                patron = patron + R + ",";
+                no[l] = R;
+                s = true;
+            }
+            patron = patron.Remove(patron.Length - 1);
+            patron = patron + ";";
+        }
+        patron = patron.Remove(patron.Length - 1);
+        return patron;
     }
 }

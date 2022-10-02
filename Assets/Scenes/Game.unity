@@ -190,7 +190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 138, y: 25}
+  m_AnchoredPosition: {x: 291, y: 183}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &254493196
@@ -1404,9 +1404,10 @@ MonoBehaviour:
   street: {fileID: 1492771435524588628, guid: 7a5347937d27f9241a94883a41447487, type: 3}
   velocity: 4.88
   velocity2: 5
-  separation: 9.5
+  separation: 15
   streetVelocity: 6
   pattern: 0;1;2;3;4;5;4;3;2;1;0;0,5;1,4;2,3;1,4;0,5
+  patron: 
   period: 0.74
   perio2: 5
   difference: 1.2
@@ -1548,7 +1549,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 7, y: -34}
+  m_AnchoredPosition: {x: -327, y: -34}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1217175144
@@ -2011,7 +2012,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 30, y: 46}
+  m_AnchoredPosition: {x: 390, y: 166}
   m_SizeDelta: {x: 50.149994, y: 50.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1509869783
@@ -2027,7 +2028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0.45490196}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
