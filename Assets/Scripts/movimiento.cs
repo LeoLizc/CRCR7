@@ -81,10 +81,15 @@ public class movimiento : MonoBehaviour
                 este.angularDrag = 1;
                 this.enabled = false;
                 GameManager.Instance.ChangeState(GameManager.GameState.crashed);
-                SceneManager.LoadScene("End");
+                Destroy(gameObject, 2.1f);
+
             }
         }
 
     }
-    
+    private void OnDestroy()
+    {
+        SceneManager.LoadScene("End");
+    }
+
 }
