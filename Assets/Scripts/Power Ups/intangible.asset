@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d3d665a0a7a23044a53ba9b80c0ea8e, type: 3}
   m_Name: intangible
   m_EditorClassIdentifier: 
-  duration: 500
+  duration: 5
   usages: 2

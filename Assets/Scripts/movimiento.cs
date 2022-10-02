@@ -78,7 +78,7 @@ public class movimiento : MonoBehaviour
 
                 este.sharedMaterial = crashedMaterial;
                 este.drag = 2;
-                este.angularDrag = 1;
+                este.angularDrag = 1.5f;
                 this.enabled = false;
                 GameManager.Instance.ChangeState(GameManager.GameState.crashed);
                 Destroy(gameObject, 2.1f);

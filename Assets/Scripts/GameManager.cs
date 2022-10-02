@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     [Header("State")]
     public float velocity;
 
-    public GameState state;
+    public GameState state = GameState.start;
 
     private float mejorTiempo;
     private string stringMejorTiempo;
@@ -25,14 +25,17 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance)
+        {
+            Destroy(gameObject);
+            return;
+        }
         DontDestroyOnLoad(gameObject);
         Instance = this;
-        state = GameState.start;
         mejorTiempo = 0;
         stringMejorTiempo = "";
         ultimoTiempo = 0;
         ultimoStringTiempo = "";
-        DontDestroyOnLoad(gameObject);
     }
     // Start is called before the first frame update
     void Start()
