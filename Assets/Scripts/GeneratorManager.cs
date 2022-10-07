@@ -23,14 +23,16 @@ public class GeneratorManager : MonoBehaviour
 
     //#################################### - RELATED TO GAME MANAGER LOGIC - ######################################
     public bool use_Game_Manager = false;
+    public bool notUseGameManager { get => !use_Game_Manager; }
     //---------------------------------------------------------------------------------------------------------
+    [ConditionalHide("notUseGameManager")] 
     [Header("Custom Config")]
     [SerializeField] float velocity;
 
     //---------------------------------------------------------------------------------------------------------
     [Header("Using Game Manager")]
-    [SerializeField] private float difference;
-    [SerializeField] float streetVelocity;
+    [ConditionalHide("use_Game_Manager")] [SerializeField] private float difference;
+    [ConditionalHide("use_Game_Manager")] [SerializeField] float streetVelocity;
 
     //#################################### - Private components - ######################################
     private int step;
