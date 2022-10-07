@@ -102,6 +102,12 @@ public class PowerHandler : MonoBehaviour
                 ima.sprite = pod[1];
 
             }
+            if (d == "Invencible (Invencible)" && charged)
+            {
+                ima.enabled = true;
+                ima.sprite = pod[3];
+
+            }
             //activate();
         }
     }

@@ -1241,7 +1241,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1908873850}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ce8b38d102b9d640af20a9d658760db, type: 3}
+  m_Script: {fileID: 11500000, guid: 07088b0c630c4e44fa29c99db9c839f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   generators:
@@ -1250,12 +1250,18 @@ MonoBehaviour:
   - {fileID: 2029019896}
   - {fileID: 72312390}
   - {fileID: 2017309328}
-  velocity: 4.88
-  velocity2: 5
+  streetGenerator: {fileID: 0}
+  street: {fileID: 0}
+  obstaclePath: cars_F1
   pattern: 0;1;2;3;4;5;4;3;2;1;0;0,5;1,4;2,3;1,4;0,5
-  period: 0.74
-  perio2: 5
-  difference: 1.2
+  repet_Pattern: 1
+  velocity2: 5
+  separation: 0.74
+  power_period: 5
+  use_Game_Manager: 0
+  velocity: 4.88
+  difference: 0
+  streetVelocity: 0
 --- !u!4 &1908873852
 Transform:
   m_ObjectHideFlags: 0
