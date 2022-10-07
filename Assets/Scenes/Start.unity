@@ -688,7 +688,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 904927880}
-  - component: {fileID: 904927881}
+  - component: {fileID: 904927882}
   m_Layer: 0
   m_Name: Gen
   m_TagString: Untagged
@@ -715,7 +715,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &904927881
+--- !u!114 &904927882
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -724,7 +724,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 904927879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ce8b38d102b9d640af20a9d658760db, type: 3}
+  m_Script: {fileID: 11500000, guid: 07088b0c630c4e44fa29c99db9c839f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   generators:
@@ -733,12 +733,18 @@ MonoBehaviour:
   - {fileID: 1760002329}
   - {fileID: 160008417}
   - {fileID: 637236943}
-  velocity: 4.88
-  velocity2: 5
+  streetGenerator: {fileID: 0}
+  street: {fileID: 0}
+  obstaclePath: cars_F1
   pattern: 0;1;2;3;4;5;4;3;2;1;0;0,5;1,4;2,3;1,4;0,5
-  period: 0.74
-  perio2: 5
-  difference: 1.2
+  repet_Pattern: 1
+  velocity2: 5
+  separation: 0.74
+  power_period: 5
+  use_Game_Manager: 0
+  velocity: 4.88
+  difference: 0
+  streetVelocity: 0
 --- !u!1 &1253706134
 GameObject:
   m_ObjectHideFlags: 0

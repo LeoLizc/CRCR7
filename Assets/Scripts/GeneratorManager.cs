@@ -4,21 +4,38 @@ using UnityEngine;
 
 public class GeneratorManager : MonoBehaviour
 {
+    [Header("Generators")]
     [SerializeField] private List<GameObject> generators;
     [SerializeField] private GameObject streetGenerator;
 
+    [Header("Models")]
     [SerializeField] private GameObject street;
-    [SerializeField] float velocity, velocity2;
+    [SerializeField] private string obstaclePath;
+
+    [Header("Personalization")]
+    public string pattern;
+    // If true, the pattern will repeate indefinitely, Otherwise it will generate a instances randomly
+    public bool repet_Pattern = false;
+
+    [SerializeField] float velocity2;
     public float separation;
+    [SerializeField] private float power_period; //time in seconds Between each PowerUp
+
+    //#################################### - RELATED TO GAME MANAGER LOGIC - ######################################
+    public bool use_Game_Manager = false;
+    //---------------------------------------------------------------------------------------------------------
+    [Header("Custom Config")]
+    [SerializeField] float velocity;
+
+    //---------------------------------------------------------------------------------------------------------
+    [Header("Using Game Manager")]
+    [SerializeField] private float difference;
     [SerializeField] float streetVelocity;
-    public string pattern, patron;
+
+    //#################################### - Private components - ######################################
     private int step;
     private float nextActionTime = 0.0f, nextActionTime2 = 0.0f;
-    [SerializeField] private float period, perio2;
     private GameObject[] cars, poderes;
-
-    [Header("Diference")]
-    [SerializeField] private float difference;
 
     // Start is called before the first frame update
     void Awake()
@@ -26,7 +43,7 @@ public class GeneratorManager : MonoBehaviour
         //step = 0;
         //InvokeRepeating("generatePlatform", 2, 2);
         loadObjectsFolder("Poderes_car", ref poderes);
-        loadObjectsFolder("cars_obstacles", ref cars);
+        loadObjectsFolder(obstaclePath, ref cars);
     }
 
     private void Update()
@@ -34,21 +51,21 @@ public class GeneratorManager : MonoBehaviour
         float time = Time.time;
         if ( time > nextActionTime)
         {
-            nextActionTime = time + period/(GameManager.Instance.velocity/separation);
+            nextActionTime = time + separation/(use_Game_Manager ? GameManager.Instance.velocity : 1);
             //Debug.Log("generar");
-            if (GameManager.Instance.velocity > difference && GameManager.Instance.state == GameManager.GameState.running)
+            if (!use_Game_Manager || GameManager.Instance.velocity > difference && GameManager.Instance.state == GameManager.GameState.running)
             {
                 generatePlatform();
             }
-            if(GameManager.Instance.velocity > 0)
+            if(use_Game_Manager && GameManager.Instance.velocity > 0)
             {
                 generateStreet();
             }
                 
         }
-        if (time > nextActionTime2 && GameManager.Instance.state == GameManager.GameState.running)
+        if (time > nextActionTime2 && use_Game_Manager && GameManager.Instance.state == GameManager.GameState.running)
         {
-            nextActionTime2 = time + perio2;
+            nextActionTime2 = time + power_period;
             //Debug.Log("generar");
             generatePower();
         }
@@ -80,10 +97,12 @@ public class GeneratorManager : MonoBehaviour
         foreach(string gen in next.Split(','))
         {
             int numberOfCar = Random.Range(0, cars.Length);
-            generators[int.Parse(gen)].GetComponent<PlatformGenerator>().generatePlatform(cars[numberOfCar], GameManager.Instance.velocity - difference);
+            generators[int.Parse(gen)%generators.Count].GetComponent<PlatformGenerator>()
+                .generatePlatform(cars[numberOfCar],
+                (use_Game_Manager? GameManager.Instance.velocity - difference : velocity));
         }
         step++;
-        if (step> steps.Length)
+        if (!repet_Pattern && step> steps.Length)
         {
             pattern= RandomGenP();
             step = 0;
@@ -99,20 +118,20 @@ public class GeneratorManager : MonoBehaviour
     }
     public string RandomGenP()
     {
-        patron = "";
+        string patron = "";
         int i, k, R = 0;
         int[] no;
         bool s = true;
         no = new int[5];
-        i = Random.RandomRange(10, 20);
+        i = Random.Range(10, 20);
         for (int j = 0; j < i; j++)
         {
-            k = Random.RandomRange(1, 4);
+            k = Random.Range(1, 4);
             for (int l = 0; l < k; l++)
             {
                 while (s)
                 {
-                    R = Random.RandomRange(0, 6);
+                    R = Random.Range(0, 6);
                     s = false;
                     for (int ni = 0; ni < l; ni++)
                     {
